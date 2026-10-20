@@ -1,0 +1,42 @@
+{
+  "collections": {
+    "customers": {
+      "documents_read": 10
+    },
+    "orders": {
+      "documents_read": 20
+    },
+    "products": {
+      "documents_read": 8
+    }
+  },
+  "errors": [],
+  "finished_at": "2026-10-18T16:57:38+00:00",
+  "map_hash": "ef20235471cc87d656c4a4dbfdd38c500fadb695959830937d5662fafd71cc27",
+  "map_revision": 1,
+  "message": "all tables loaded; run verification next",
+  "started_at": "2026-10-18T16:57:38+00:00",
+  "status": "COMPLETED",
+  "tables": {
+    "customers": {
+      "inserted": 10,
+      "skipped_existing": 0,
+      "source_rows": 10
+    },
+    "orders": {
+      "inserted": 20,
+      "skipped_existing": 0,
+      "source_rows": 20
+    },
+    "orders_items": {
+      "inserted": 39,
+      "skipped_existing": 0,
+      "source_rows": 39
+    },
+    "products": {
+      "inserted": 8,
+      "skipped_existing": 0,
+      "source_rows": 8
+    }
+  }
+}

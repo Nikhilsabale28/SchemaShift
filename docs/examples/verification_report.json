@@ -1,0 +1,158 @@
+{
+  "checks": [
+    {
+      "detail": "all source documents transform cleanly",
+      "name": "source_transformable",
+      "passed": true
+    },
+    {
+      "detail": "source-derived 10 vs target 10",
+      "name": "customers:count",
+      "passed": true
+    },
+    {
+      "detail": "all stored values have the expected types",
+      "name": "customers:types",
+      "passed": true
+    },
+    {
+      "detail": "0 NULLs in NOT NULL columns",
+      "name": "customers:required_fields",
+      "passed": true
+    },
+    {
+      "detail": "0 missing, 0 extra",
+      "name": "customers:rows_present",
+      "passed": true
+    },
+    {
+      "detail": "0 critical value mismatches (none)",
+      "name": "customers:critical_fields",
+      "passed": true
+    },
+    {
+      "detail": "sha256 target=f8dab202b031 expected=f8dab202b031, 0 differing values",
+      "name": "customers:checksum",
+      "passed": true
+    },
+    {
+      "detail": "source-derived 8 vs target 8",
+      "name": "products:count",
+      "passed": true
+    },
+    {
+      "detail": "all stored values have the expected types",
+      "name": "products:types",
+      "passed": true
+    },
+    {
+      "detail": "0 NULLs in NOT NULL columns",
+      "name": "products:required_fields",
+      "passed": true
+    },
+    {
+      "detail": "0 missing, 0 extra",
+      "name": "products:rows_present",
+      "passed": true
+    },
+    {
+      "detail": "0 critical value mismatches (none)",
+      "name": "products:critical_fields",
+      "passed": true
+    },
+    {
+      "detail": "sha256 target=371d40b6e65c expected=371d40b6e65c, 0 differing values",
+      "name": "products:checksum",
+      "passed": true
+    },
+    {
+      "detail": "source-derived 20 vs target 20",
+      "name": "orders:count",
+      "passed": true
+    },
+    {
+      "detail": "all stored values have the expected types",
+      "name": "orders:types",
+      "passed": true
+    },
+    {
+      "detail": "0 NULLs in NOT NULL columns",
+      "name": "orders:required_fields",
+      "passed": true
+    },
+    {
+      "detail": "0 missing, 0 extra",
+      "name": "orders:rows_present",
+      "passed": true
+    },
+    {
+      "detail": "0 critical value mismatches (none)",
+      "name": "orders:critical_fields",
+      "passed": true
+    },
+    {
+      "detail": "sha256 target=5d4c52a2514d expected=5d4c52a2514d, 0 differing values",
+      "name": "orders:checksum",
+      "passed": true
+    },
+    {
+      "detail": "source-derived 39 vs target 39",
+      "name": "orders_items:count",
+      "passed": true
+    },
+    {
+      "detail": "all stored values have the expected types",
+      "name": "orders_items:types",
+      "passed": true
+    },
+    {
+      "detail": "0 NULLs in NOT NULL columns",
+      "name": "orders_items:required_fields",
+      "passed": true
+    },
+    {
+      "detail": "0 missing, 0 extra",
+      "name": "orders_items:rows_present",
+      "passed": true
+    },
+    {
+      "detail": "0 critical value mismatches (none)",
+      "name": "orders_items:critical_fields",
+      "passed": true
+    },
+    {
+      "detail": "sha256 target=c421679e0764 expected=c421679e0764, 0 differing values",
+      "name": "orders_items:checksum",
+      "passed": true
+    },
+    {
+      "detail": "0 orphan references",
+      "name": "orders.customer_id->customers:foreign_key",
+      "passed": true
+    },
+    {
+      "detail": "0 orphan references",
+      "name": "orders_items.order_id->orders:foreign_key",
+      "passed": true
+    },
+    {
+      "detail": "0 orphan references",
+      "name": "orders_items.product_id->products:foreign_key",
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "byte-for-byte (documented limitation):",
+    "  * generated child `id` (BIGSERIAL) - rows are matched by their natural key (parent id + array position);",
+    "  * ObjectId -> text and naive-datetime -> UTC conversions are compared in their converted form;",
+    "  * nested documents split into several tables are verified per table, not as one reassembled document."
+  ],
+  "map_hash": "ef20235471cc87d656c4a4dbfdd38c500fadb695959830937d5662fafd71cc27",
+  "mismatches": [],
+  "status": "PASS",
+  "summary": {
+    "checks": 28,
+    "failed": 0
+  },
+  "verified_at": "2026-10-18T16:57:38+00:00"
+}

@@ -1,0 +1,12 @@
+{
+  "files": {
+    "change_report.md": "b377a65638944f0ed8bc29a1ce8f44999a17a415171c0e2674a5e040d30b1217",
+    "etl_plan.json": "de7331103f197c6afcbe421e4e373ed733daeb9ac830eccd54b45481c51bbc31",
+    "orm_models.py": "3e0416c3b3e15804ce349da4169d92e164c1dc32b653ceb42a28c8578e1c1958",
+    "rollback.sql": "2390edac878caf8975732a723b017b22ff52f8cf19d2afa0d27b0ff0c2e372e3",
+    "schema.sql": "222a8bf370bc662977dbb5184dd3ae609e7fec0e2026784d76aa5c1c9e9cccaa"
+  },
+  "map_hash": "ef20235471cc87d656c4a4dbfdd38c500fadb695959830937d5662fafd71cc27",
+  "map_revision": 1,
+  "target_schema": "schemashift_demo"
+}

@@ -1,0 +1,22 @@
+# Optional: local MongoDB + PostgreSQL for the demo (no cloud, no real data).
+# Usage (PowerShell):  $env:POSTGRES_PASSWORD="choose-a-password"; docker compose up -d
+# Then set in .env:  POSTGRES_URL=postgresql+psycopg://postgres:<same password>@localhost:5432/schemashift_target
+services:
+  mongo:
+    image: mongo:7
+    ports: ["127.0.0.1:27017:27017"]
+    volumes: [mongo_data:/data/db]
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD before starting}
+      POSTGRES_DB: schemashift_target
+    ports: ["127.0.0.1:5432:5432"]
+    volumes: [pg_data:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d schemashift_target"]
+      interval: 5s
+      retries: 10
+volumes:
+  mongo_data:
+  pg_data:

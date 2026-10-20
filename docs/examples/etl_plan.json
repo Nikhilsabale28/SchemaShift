@@ -1,0 +1,242 @@
+{
+  "map_hash": "ef20235471cc87d656c4a4dbfdd38c500fadb695959830937d5662fafd71cc27",
+  "tables": {
+    "customers": {
+      "array_path": null,
+      "columns": {
+        "address_city": {
+          "nullable": false,
+          "source_path": "address.city",
+          "sql_type": "TEXT",
+          "transform": "flatten"
+        },
+        "address_postal_code": {
+          "nullable": false,
+          "source_path": "address.postalCode",
+          "sql_type": "TEXT",
+          "transform": "flatten"
+        },
+        "address_state": {
+          "nullable": false,
+          "source_path": "address.state",
+          "sql_type": "TEXT",
+          "transform": "flatten"
+        },
+        "created_at": {
+          "nullable": false,
+          "source_path": "createdAt",
+          "sql_type": "TIMESTAMPTZ",
+          "transform": "direct"
+        },
+        "email": {
+          "nullable": false,
+          "source_path": "email",
+          "sql_type": "TEXT",
+          "transform": "direct"
+        },
+        "full_name": {
+          "nullable": false,
+          "source_path": "fullName",
+          "sql_type": "TEXT",
+          "transform": "direct"
+        },
+        "id": {
+          "nullable": false,
+          "source_path": "_id",
+          "sql_type": "VARCHAR(24)",
+          "transform": "direct"
+        },
+        "phone": {
+          "nullable": true,
+          "source_path": "phone",
+          "sql_type": "TEXT",
+          "transform": "direct"
+        },
+        "profile_newsletter": {
+          "nullable": true,
+          "source_path": "profile.newsletter",
+          "sql_type": "BOOLEAN",
+          "transform": "flatten"
+        },
+        "profile_source": {
+          "nullable": true,
+          "source_path": "profile.source",
+          "sql_type": "TEXT",
+          "transform": "flatten"
+        }
+      },
+      "conflict_columns": [
+        "id"
+      ],
+      "insert_columns": [
+        "address_city",
+        "address_postal_code",
+        "address_state",
+        "created_at",
+        "email",
+        "full_name",
+        "id",
+        "phone",
+        "profile_newsletter",
+        "profile_source"
+      ],
+      "kind": "root",
+      "source_collection": "customers"
+    },
+    "orders": {
+      "array_path": null,
+      "columns": {
+        "customer_id": {
+          "nullable": false,
+          "source_path": "customerId",
+          "sql_type": "VARCHAR(24)",
+          "transform": "direct"
+        },
+        "id": {
+          "nullable": false,
+          "source_path": "_id",
+          "sql_type": "VARCHAR(24)",
+          "transform": "direct"
+        },
+        "order_date": {
+          "nullable": false,
+          "source_path": "orderDate",
+          "sql_type": "TIMESTAMPTZ",
+          "transform": "direct"
+        },
+        "shipping_method": {
+          "nullable": true,
+          "source_path": "shipping.method",
+          "sql_type": "TEXT",
+          "transform": "flatten"
+        },
+        "shipping_tracking_number": {
+          "nullable": true,
+          "source_path": "shipping.trackingNumber",
+          "sql_type": "TEXT",
+          "transform": "flatten"
+        },
+        "status": {
+          "nullable": false,
+          "source_path": "status",
+          "sql_type": "TEXT",
+          "transform": "direct"
+        }
+      },
+      "conflict_columns": [
+        "id"
+      ],
+      "insert_columns": [
+        "customer_id",
+        "id",
+        "order_date",
+        "shipping_method",
+        "shipping_tracking_number",
+        "status"
+      ],
+      "kind": "root",
+      "source_collection": "orders"
+    },
+    "orders_items": {
+      "array_path": "items",
+      "columns": {
+        "id": {
+          "nullable": false,
+          "source_path": null,
+          "sql_type": "BIGSERIAL",
+          "transform": "generated"
+        },
+        "order_id": {
+          "nullable": false,
+          "source_path": "_id",
+          "sql_type": "VARCHAR(24)",
+          "transform": "parent_key"
+        },
+        "position": {
+          "nullable": false,
+          "source_path": null,
+          "sql_type": "BIGINT",
+          "transform": "array_index"
+        },
+        "product_id": {
+          "nullable": false,
+          "source_path": "items[].productId",
+          "sql_type": "VARCHAR(24)",
+          "transform": "flatten"
+        },
+        "quantity": {
+          "nullable": false,
+          "source_path": "items[].quantity",
+          "sql_type": "BIGINT",
+          "transform": "flatten"
+        },
+        "unit_price": {
+          "nullable": false,
+          "source_path": "items[].unitPrice",
+          "sql_type": "NUMERIC(12,2)",
+          "transform": "flatten"
+        }
+      },
+      "conflict_columns": [
+        "order_id",
+        "position"
+      ],
+      "insert_columns": [
+        "order_id",
+        "position",
+        "product_id",
+        "quantity",
+        "unit_price"
+      ],
+      "kind": "array_child",
+      "source_collection": "orders"
+    },
+    "products": {
+      "array_path": null,
+      "columns": {
+        "category": {
+          "nullable": false,
+          "source_path": "category",
+          "sql_type": "TEXT",
+          "transform": "direct"
+        },
+        "id": {
+          "nullable": false,
+          "source_path": "_id",
+          "sql_type": "VARCHAR(24)",
+          "transform": "direct"
+        },
+        "name": {
+          "nullable": false,
+          "source_path": "name",
+          "sql_type": "TEXT",
+          "transform": "direct"
+        },
+        "price": {
+          "nullable": false,
+          "source_path": "price",
+          "sql_type": "NUMERIC(12,2)",
+          "transform": "direct"
+        },
+        "stock_quantity": {
+          "nullable": false,
+          "source_path": "stockQuantity",
+          "sql_type": "BIGINT",
+          "transform": "direct"
+        }
+      },
+      "conflict_columns": [
+        "id"
+      ],
+      "insert_columns": [
+        "category",
+        "id",
+        "name",
+        "price",
+        "stock_quantity"
+      ],
+      "kind": "root",
+      "source_collection": "products"
+    }
+  }
+}
